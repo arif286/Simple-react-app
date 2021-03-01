@@ -11,9 +11,9 @@ const Cart = (props) => {
         <div>
             <div className="card text-center player-container">
                 <div className="card-body">
-                    <h5 className="card-title">Added player {countPlayer.length}</h5>
-                    <p className="card-text">Total salary: ${Number(totalSalary)}</p>
-                    <a href="#cart" className="btn btn-primary"><FontAwesomeIcon icon={faShoppingCart} />Add Player</a>
+                    <h5 className="card-title">Team Member: {countPlayer.length}</h5>
+                    <p className="card-text">Total Budget: ${Number(totalSalary)}</p>
+                    <a href="#cart" className="btn btn-primary"><FontAwesomeIcon icon={faShoppingCart} />Add Team</a>
                 </div>
             </div>
             <div>

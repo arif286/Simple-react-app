@@ -1,13 +1,14 @@
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import { Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import './Cricketer.css';
 
 
 const Cricketer = (props) => {
-    const { first_name, last_name, Birth, picture, salary, test, odi, t20, country} = props.player;
+    const { first_name, last_name, Birth, picture, salary, test, odi, t20, country } = props.player;
+    const [ isClicked, setIsClicked ] =  useState(false);
     return (
         
         <Row className='p-3 player-container mt-4'>
@@ -31,9 +32,12 @@ const Cricketer = (props) => {
             
                 </Row>
                 <Row className=' d-flex justify-content-center pt-3'>
-                    <Button variant="primary" onClick={()=>props.handleAddPlayer(props.player)}>
-                            <FontAwesomeIcon icon={faShoppingCart} />
-                            Choose Me</Button>
+                    <Button disabled={isClicked} variant="primary" onClick={() => {
+                        props.handleAddPlayer(props.player)
+                        setIsClicked(true)}}>
+                        <FontAwesomeIcon icon={faShoppingCart}/>
+                         {isClicked ? "Already Selected" : "Select Me"}
+                    </Button>
                 </Row>    
             </div>
         </Row>
